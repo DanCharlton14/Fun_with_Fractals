@@ -1,0 +1,28 @@
+<script>
+$(document).ready(function(){
+    $("select").change(function(){
+        $(this).find("option:selected").each(function(){
+            var optionValue = $(this).attr("value");
+            if(optionValue){
+                $(".box").not("." + optionValue).hide();
+                $("." + optionValue).show();
+            } else{
+                $(".box").hide();
+            }
+        });
+    }).change();
+});
+</script>
+</head>
+<body>
+    <div>
+        <select>
+            <option>Choose Color</option>
+            <option value="red">Sierpinski Triangle</option>
+            <option value="green">Sierpinski Carpet</option>
+            <option value="blue">Blue</option>
+        </select>
+    </div>
+    <iframe width="30%" class = "red box" src="https://editor.p5js.org/DanCharlton/embed/CPGmMpMM-"></iframe>
+  <iframe class = "green box" src="https://editor.p5js.org/DanCharlton/embed/EmnScWG00"></iframe> 
+    <div class="blue box">You have selected <strong>blue option</strong> so i am here</div>
