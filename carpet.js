@@ -6,35 +6,36 @@ let current_point;
 let next_point;
 let direction;
 let move;
-let points = [];
+let points;
 let tslider;
 let sel;
+let button;
 
 
 function setup() {
   createCanvas(400, 400);
   start_point = createVector(width/2, height/2);
+  points = [];
   points.push(start_point);
-  a1 = createVector(width * 0.75, height * 0.75);
-  a2 = createVector(width/4, height * 0.75);
-  a3 = createVector(width/4, height/4);
-  a4 = createVector(width * 0.75, height/4);
-  m1 = createVector(width/4, height/2);
-  m2 = createVector(width/2, height * 0.75);
-  m3 = createVector(width/2, height/4);
-  m4 = createVector(width * 0.75, height/2);
-  stroke('purple');
-  strokeWeight(10);
-  stroke('blue');
-  strokeWeight(5);
+  a1 = createVector(width * 0.9, height * 0.9);
+  a2 = createVector(width/10, height * 0.9);
+  a3 = createVector(width/10, height/10);
+  a4 = createVector(width * 0.9, height/10);
+  m1 = createVector(width/10, height/2);
+  m2 = createVector(width/2, height * 0.9);
+  m3 = createVector(width/2, height/10);
+  m4 = createVector(width * 0.9, height/2);
   point(start_point);
-  tslider = createSlider(1,256,126,25)
-
+  tslider = createSlider(1,120, 60);
+  
+  button = createButton("Reset");
+  button.mousePressed(resetSketch);
+  button.position(width/2, height);
    
 }
 
 function draw() {
-  background(220);
+  background(0);
   frameRate(tslider.value());
   stroke('purple');
   strokeWeight(10);
@@ -46,8 +47,8 @@ function draw() {
   point(m2);
   point(m3);
   point(m4);
-  stroke('blue');
-  strokeWeight(4);
+  stroke('white');
+  strokeWeight(2);
   rn = random([1, 2, 3,4,5,6,7,8]);
   if(rn == 1){
     direction = p5.Vector.sub(a1, start_point);
@@ -87,7 +88,23 @@ function draw() {
     point(points[i]);
   }
   start_point = move;
+}
 
-  
-
+function resetSketch(){
+   start_point = createVector(width/2, height/2);
+  points = [];
+  points.push(start_point);
+  a1 = createVector(width * 0.75, height * 0.75);
+  a2 = createVector(width/4, height * 0.75);
+  a3 = createVector(width/4, height/4);
+  a4 = createVector(width * 0.75, height/4);
+  m1 = createVector(width/4, height/2);
+  m2 = createVector(width/2, height * 0.75);
+  m3 = createVector(width/2, height/4);
+  m4 = createVector(width * 0.75, height/2);
+  stroke('purple');
+  strokeWeight(10);
+  stroke('blue');
+  strokeWeight(5);
+  point(start_point);
 }
