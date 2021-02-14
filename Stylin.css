@@ -1,0 +1,30 @@
+body {
+  background-color: black;
+}
+h1 {
+  background-color: lightblue;
+  text-align: center;
+  color: white;
+  font-family: verdana;
+  font-size: 300%;
+}
+h4 {
+  text-align: center;
+  color: white;
+  font-family: verdana;
+  font-size: 150%;
+}
+p {
+  color: white;
+  border: 2px solid powderblue;
+  padding: 30px;
+}
+
+iframe {
+  background-color: powderblue;
+}
+
+
+.float-right {
+float: right;
+width: 65%;
